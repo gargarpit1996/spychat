@@ -60,7 +60,12 @@ def select_frnd():
 
 def send_message():
     selected_frnd = select_frnd()
-    print selected_frnd()
+    original_image = raw_input("What is your name of original image? ")
+    secret_text = raw_input("What is your Secret text? ")
+    output_path = "ouutput.jpg"
+    Steganography.encode(original_image,output_path,secret_text)
+    print("message encoded")
+    
 
 
 
