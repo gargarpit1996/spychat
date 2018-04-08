@@ -99,11 +99,23 @@ def read_message():                                                             
     new_chat =ChatMessage(secret_text,False)
 
     friends[selected_frnd].chats.append(new_chat)
-    print "Your secret message has been saved !!!!"
 
+    if secret_text in ['BRB']:
+        print "BE RIGHT BACK!!!"
+    elif secret_text in ['HELP']:
+        print "BACKU UP TEAM WILL REACH SOON"
+    elif secret_text in ['SOS']:
+        print "SAVE OUR SHIP"
+    else:
+        print "secret_text"
+        print "Your secret message has been saved !!!!"
+
+
+def read_chat_history():
+    read_for = select_frnd()
+    
 
 def start_chat(Spy_Name,Spy_Age):                                     #START CHAT
-    print "what Do u want to do" + Spy.Name
     current_status= None
     show_menu =True
     while show_menu:
@@ -127,7 +139,9 @@ def start_chat(Spy_Name,Spy_Age):                                     #START CHA
             read_message()   #read_message
 
 
-        elif choice ==5:                                                    #exit
+        elif choice ==5:
+            read_chat_history()
+
             show_menu = False
 
         else:
@@ -137,6 +151,7 @@ def start_chat(Spy_Name,Spy_Age):                                     #START CHA
 spy_exist = raw_input("Are you a new user? Y/N")
 if spy_exist.upper()=="N".lower() or spy_exist == "n".upper():      #use nested if & else.
     print " Welcome Back Agent "
+
     start_chat(Spy.Name,Spy.Rating,Spy.Age)
 
 elif spy_exist =="Y".lower() or spy_exist == "y".upper():
@@ -180,4 +195,6 @@ elif spy_exist =="Y".lower() or spy_exist == "y".upper():
             print"Ivalid salutation"                           #invalid situation
     else:
         print"OOOPPS... Please Enter a Valid Name"
+else:
+    print "Invalid Entry"
 
